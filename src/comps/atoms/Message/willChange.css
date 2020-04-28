@@ -1,0 +1,3 @@
+.willChange {
+  will-change: transform, opacity;
+}
