@@ -11,9 +11,6 @@ const getRandomEl = (arr = []) => arr[Math.floor(Math.random() * arr.length)];
 
 export default function App() {
   const [lines, setLines] = useState(getRandomEl(listOfGreetings));
-  // useInterval(() => {
-  //   setLines(getRandomEl(listOfGreetings));
-  // }, 2000);
 
   return (
     <Router>

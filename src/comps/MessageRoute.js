@@ -10,6 +10,7 @@ export default function MessageRoute({
   component,
   children,
   render,
+  ignore,
   ...props
 }) {
   const [showMsg, setShowMsg] = useState(true);
@@ -22,24 +23,30 @@ export default function MessageRoute({
     opacity: showMsg ? 1 : 0,
     x: showMsg ? 0 : 20,
     zIndex: showMsg ? 10 : -10,
-    from: { opacity: 0, x: 20 },
+    from: { opacity: 1, x: 20 },
   });
+
+  const behind = <>{component || children || render}</>;
 
   return (
     <Route {...props}>
-      <MessagePage
-        opacity={spring.opacity}
-        frontZIndex={spring.zIndex}
-        lines={lines}
-        autoclose={closeTime}
-        autocloseCallback={() => {
-          console.log("heyyyyy");
-          setTimeout(() => {
-            setShowMsg(false);
-          }, timeForOutro);
-        }}
-        behind={<>{component || children || render}</>}
-      />
+      {ignore ? (
+        behind
+      ) : (
+        <MessagePage
+          opacity={spring.opacity}
+          frontZIndex={spring.zIndex}
+          lines={lines}
+          autoclose={closeTime}
+          autocloseCallback={() => {
+            console.log("heyyyyy");
+            setTimeout(() => {
+              setShowMsg(false);
+            }, timeForOutro);
+          }}
+          behind={behind}
+        />
+      )}
     </Route>
   );
 }

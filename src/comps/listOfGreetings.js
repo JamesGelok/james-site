@@ -1,7 +1,6 @@
 const listOfGreetings = [
-  ["Thanks for", "stopping by"],
-  // "Hello there!",
-  // ["It's nice", "to meet", "you"],
-  ["You're beautiful", "just the way", "you are"],
+  ["It's so nice", "to have", "you over"],
+  ["It's a", "beautiful day,", "isn't it?"],
+  ["It's a pleasure", "to see you :)"],
 ];
 export default listOfGreetings;
