@@ -35,7 +35,7 @@ export default function MessagePage({
           {Behind}
         </animated.div>
       )}
-      <Flex style={{ opacity, zIndex: frontZIndex, background: "pink" }}>
+      <Flex style={{ opacity, zIndex: frontZIndex, background: "#596886" }}>
         <Message
           {...{
             lines,

@@ -2,6 +2,7 @@ import { Link, Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import React, { useState } from "react";
 
 import Flex from "../atoms/Flex/index";
+import HomePage from "../pages/HomePage";
 import Message from "../atoms/Message";
 import MessageListPage from "../pages/MessageListPage";
 import MessageRoute from "../MessageRoute";
@@ -16,8 +17,7 @@ export default function App() {
     <Router>
       <Switch>
         <MessageRoute exact path="/" lines={lines}>
-          <h1>This is the home page</h1>
-          <Link to="/about">about</Link>
+          <HomePage />
         </MessageRoute>
         <Route exact path="/about">
           <MessageListPage />

@@ -1,4 +1,5 @@
 import "./willChange.css";
+import "./shadow.css";
 
 import React, { useEffect, useState } from "react";
 import { animated, useTrail } from "react-spring";
@@ -87,14 +88,17 @@ export default function Message({
         {trail.map(({ x, height, ...rest }, index) => (
           <animated.div
             key={lines[index]}
-            className="willChange"
+            className="willChange shadow"
             style={{
               ...rest,
               transform: x.interpolate((x) => `translate3d(0,${x}px,0)`),
               position: "relative",
               width: "100%",
-              color: w > h ? "palevioletred" : "#CFFFE5",
+              color: "#ffd5af",
               // color: "palevioletred",
+
+              fontFamily: "Sansita",
+
               lineHeight: "80%",
               fontSize:
                 w > h ? `${DESKTOP_CONSTANT}vw` : `${MOBILE_CONSTANT}vh`, // desktop : mobile
