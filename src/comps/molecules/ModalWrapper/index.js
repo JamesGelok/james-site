@@ -45,12 +45,12 @@ export default function ModalWrapper({ modal: Modal, children }) {
 
   const closed = {
     height: 0 + "px", // must be in px
-    width: compWidth + "px", // must be in px
+    width: 0 + "px", // must be in px
     background: "rgba(255,255,255,0)",
     padding: "0px",
   };
   const modal = {
-    height: "336px",
+    height: "270px",
     width: "300px",
     background: "rgba(255,255,255,1)",
     padding: "25px",

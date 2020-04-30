@@ -48,6 +48,25 @@ export default function JumboTron() {
           left: 0,
           bottom: 0,
           right: 0,
+          zIndex: 1,
+          width: "100vw",
+          height: height + "px",
+          background:
+            "linear-gradient(0deg," +
+            colors.primary +
+            "," +
+            colors.secondary +
+            ")",
+          opacity: 0.3,
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0,
           zIndex: 0,
           width: "100vw",
           height: height + "px",
@@ -96,10 +115,10 @@ export default function JumboTron() {
                 },
               },
               line_linked: {
-                enable: false,
+                enable: true,
                 distance: 150,
                 color: "#c8c8c8",
-                opacity: 0.4,
+                opacity: 0.1,
                 width: 1,
               },
               move: {
