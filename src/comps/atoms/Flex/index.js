@@ -41,7 +41,13 @@ export default function Flex({ children, style, ...props }) {
     ? props["align-self"]
     : "column";
   // bonus
-  const width = typeof props["width"] !== "undefined" ? props["width"] : "100%";
+  const width =
+    typeof props["width"] !== "undefined"
+      ? props["width"]
+      : props["flex-grow"] || props["flexGrow"]
+      ? ""
+      : "100%";
+  const height = props["height"];
   const backgroundColor = props["color"];
   const margin = props["margin"];
   const padding = props["padding"];
@@ -57,6 +63,7 @@ export default function Flex({ children, style, ...props }) {
         justifyContent,
         flexDirection,
         alignSelf,
+        height,
         width,
         backgroundColor,
         margin,

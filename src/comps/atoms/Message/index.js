@@ -4,6 +4,7 @@ import "./shadow.css";
 import React, { useEffect, useState } from "react";
 import { animated, useTrail } from "react-spring";
 
+import colors from "../../colors";
 import useWindowSize from "../../useWindowSize";
 
 const DEFAULT_SHOW = true;
@@ -94,19 +95,16 @@ export default function Message({
               transform: x.interpolate((x) => `translate3d(0,${x}px,0)`),
               position: "relative",
               width: "100%",
-              color: "#ffd5af",
+              color: colors.light,
               // color: "palevioletred",
 
-              fontFamily: "Sansita",
+              fontFamily: "sans-serif",
 
-              lineHeight: "80%",
+              lineHeight: "100%",
               fontSize:
                 w > h ? `${DESKTOP_CONSTANT}vw` : `${MOBILE_CONSTANT}vh`, // desktop : mobile
               fontWeight: "800",
               overflow: "hidden",
-              textShadowColor: "rgba(112, 219, 184, 0.75)",
-              textShadowOffset: { width: 1, height: 1 },
-              textShadowRadius: 10,
             }}
           >
             <animated.div

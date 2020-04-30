@@ -10,9 +10,13 @@
   "dependencies": {
     "react": "16.12.0",
     "react-dom": "16.12.0",
+    "react-email-autocomplete": "^1.3.1",
+    "react-input-mask": "^3.0.0-alpha.2",
+    "react-particles-js": "^3.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.0.1",
     "react-spring": "8.0.27",
+    "react-wavify": "^1.3.0",
     "styled-components": "^5.1.0"
   },
   "devDependencies": {

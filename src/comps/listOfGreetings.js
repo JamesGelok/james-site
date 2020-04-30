@@ -1,5 +1,5 @@
 const listOfGreetings = [
-  ["It's so nice", "to have", "you over"],
+  ["Nice of you", "to stop by :)"],
   ["It's a", "beautiful day,", "isn't it?"],
   ["It's a pleasure", "to see you :)"],
 ];
