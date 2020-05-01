@@ -56,6 +56,7 @@ export default function FixedCallToAction() {
               >
                 <button
                   style={{
+                    cursor: "pointer",
                     fontSize: "1em",
                     margin: "1em",
                     width: "100%",
@@ -65,9 +66,9 @@ export default function FixedCallToAction() {
                     margin: "0px",
                     background:
                       "linear-gradient(290deg," +
-                      colors.dark +
+                      colors.social.linkedinDark +
                       "," +
-                      colors.secondary +
+                      colors.social.linkedin +
                       ")",
                     borderRadius: "800px",
                     border: "0",
@@ -87,6 +88,7 @@ export default function FixedCallToAction() {
               >
                 <button
                   style={{
+                    cursor: "pointer",
                     fontSize: "1em",
                     margin: "1em",
                     width: "100%",

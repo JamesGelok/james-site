@@ -11,10 +11,13 @@ import useWindowSize from "../../useWindowSize";
 
 export default function JumboTron() {
   const [w, h] = useWindowSize();
-  const [saved_height] = useState(h);
-  const height = w > h ? h : saved_height;
+  const percent = 0.9;
+  const [saved_height] = useState(h * percent);
+  const height = w > h ? h * percent : saved_height;
+
   return (
     <FullHeight
+      percent={percent}
       style={{
         backgroundColor: colors.background,
       }}
@@ -95,12 +98,12 @@ export default function JumboTron() {
                 },
               },
               opacity: {
-                value: 0.5211089197812949,
+                value: 0.5,
                 random: false,
                 anim: {
                   enable: true,
                   speed: 1,
-                  opacity_min: 0.1,
+                  opacity_min: 0.5,
                   sync: false,
                 },
               },
@@ -110,7 +113,7 @@ export default function JumboTron() {
                 anim: {
                   enable: true,
                   speed: 6,
-                  size_min: 1.6,
+                  size_min: 16,
                   sync: true,
                 },
               },
@@ -161,7 +164,7 @@ export default function JumboTron() {
                   size: 40,
                   duration: 2,
                   opacity: 8,
-                  speed: 3,
+                  speed: 2,
                 },
                 repulse: {
                   distance: 200,

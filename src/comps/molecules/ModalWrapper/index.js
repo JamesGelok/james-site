@@ -20,7 +20,7 @@ const Container = styled(animated.div)`
 `;
 
 export default function ModalWrapper({ modal: Modal, children }) {
-  const [open, set] = useState(true);
+  const [open, set] = useState(false);
 
   const [compHeight, setCompHeight] = useState(0);
   const [compWidth, setCompWidth] = useState(0);
