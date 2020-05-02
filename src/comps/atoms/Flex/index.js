@@ -1,7 +1,5 @@
 import React from "react";
 import { animated } from "react-spring";
-// import { View } from "react-native";
-import styled from "styled-components";
 
 export default function Flex({ children, style, ...props }) {
   const display = "flex";

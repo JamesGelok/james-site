@@ -1,16 +1,9 @@
 import "./close.css";
 
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import {
-  animated,
-  config,
-  useChain,
-  useSpring,
-  useTransition,
-} from "react-spring";
+import React, { useCallback, useRef, useState } from "react";
+import { animated, config, useChain, useSpring } from "react-spring";
 
 import styled from "styled-components";
-import useWindowSize from "../../useWindowSize";
 
 const Container = styled(animated.div)`
   position: relative;
@@ -23,11 +16,11 @@ export default function ModalWrapper({ modal: Modal, children }) {
   const [open, set] = useState(false);
 
   const [compHeight, setCompHeight] = useState(0);
-  const [compWidth, setCompWidth] = useState(0);
+  // const [compWidth, setCompWidth] = useState(0);
   const comp = useCallback((node) => {
     if (node !== null) {
       setCompHeight(node.getBoundingClientRect().height);
-      setCompWidth(node.getBoundingClientRect().width);
+      // setCompWidth(node.getBoundingClientRect().width);
     }
   }, []);
 

@@ -6,7 +6,6 @@ import FullHeight from "../../atoms/FullHeight/index";
 import Particles from "react-particles-js";
 import Wave from "react-wavify";
 import colors from "../../colors";
-import useScroll from "../../useScroll";
 import useWindowSize from "../../useWindowSize";
 
 export default function JumboTron() {

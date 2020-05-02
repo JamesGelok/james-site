@@ -2,7 +2,6 @@ import "./form.css";
 
 import React, { useCallback, useState } from "react";
 
-import Email from "react-email-autocomplete";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ModalWrapper from "../../molecules/ModalWrapper";
 import { animated } from "react-spring";
@@ -12,8 +11,8 @@ import useScroll from "../../useScroll";
 import useWindowSize from "../../useWindowSize";
 
 export default function FixedCallToAction() {
-  const { scrollY, scrollX, scrollDirection } = useScroll();
-  const [w, h] = useWindowSize();
+  const { scrollY } = useScroll();
+  const [w] = useWindowSize();
   const btnWidth = 235.8125;
   const btnHeight = 70;
 
@@ -25,7 +24,6 @@ export default function FixedCallToAction() {
       setCompWidth(node.getBoundingClientRect().width);
     }
   }, []);
-  console.log({ compWidth });
 
   const beCircle = scrollY > 100;
   const center = w / 2 - (compWidth === 0 ? btnWidth : compWidth) / 2;
@@ -37,7 +35,7 @@ export default function FixedCallToAction() {
       id="eyy"
       style={{
         position: "fixed",
-        bottom: "7.5%",
+        bottom: beCircle ? "7.5%" : "22.5%",
         left: beCircle ? "35px" : center,
         zIndex: 9,
         filter: "drop-shadow(0.5px 0.5px 1.5px #333)",
@@ -53,15 +51,14 @@ export default function FixedCallToAction() {
                 href="https://www.linkedin.com/in/jamesgelok/"
                 style={{ cursor: "pointer", margin: "1em 0" }}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <button
                   style={{
                     cursor: "pointer",
                     fontSize: "1em",
-                    margin: "1em",
                     width: "100%",
                     height: "3em",
-                    background: colors.primary,
                     color: "white",
                     margin: "0px",
                     background:
@@ -85,15 +82,14 @@ export default function FixedCallToAction() {
                 href="mailto:jdgelok@gmail.com"
                 style={{ cursor: "pointer" }}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <button
                   style={{
                     cursor: "pointer",
                     fontSize: "1em",
-                    margin: "1em",
                     width: "100%",
                     height: "3em",
-                    background: colors.primary,
                     color: "white",
                     margin: "0px",
                     background: "linear-gradient(90deg,#ff587c,#ff531a)",
@@ -114,9 +110,6 @@ export default function FixedCallToAction() {
       >
         <button
           style={{
-            fontSize: "1em",
-            margin: 0,
-            background: colors.primary,
             fontSize: "2em",
             color: "white",
             margin: "0px",
@@ -137,6 +130,7 @@ export default function FixedCallToAction() {
               top: "0.5em",
               transform: beCircle ? "scale(0)" : "scale(1)",
               transition,
+              textAlign: "center",
             }}
           >
             Get In Touch

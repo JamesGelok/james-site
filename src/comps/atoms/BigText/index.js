@@ -1,6 +1,5 @@
 import React from "react";
 import colors from "../../colors";
-import useWindowSize from "../../useWindowSize";
 
 export default function BigText({ style, children, ...props }) {
   const height = "80px";

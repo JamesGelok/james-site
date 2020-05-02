@@ -1,48 +1,68 @@
-import BigText from "../../atoms/BigText";
 import Flex from "../../atoms/Flex";
 import FullHeight from "../../atoms/FullHeight";
 import FullScreenFlex from "../../templates/FullScreenFlex";
 import JumboTron from "../../organisms/JumboTron/index";
-import Message from "../../atoms/Message";
+import ProjectsListModule from "../../organisms/ProjectsListModule/index";
 import React from "react";
 import Wave from "react-wavify";
 import colors from "../../colors";
-import useWindowSize from "../../useWindowSize";
+
+class Project {
+  constructor({ title, subtitle, thumbnail, date }) {
+    this.title = title;
+    this.subtitle = subtitle;
+    this.thumbnail = thumbnail;
+    this.date = date;
+  }
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+  sayHi() {
+    return `Hi, ${this.firstName} ${this.lastName}`;
+  }
+  static personCount() {
+    return 3;
+  }
+}
+
+const projects = [
+  new Project({
+    title: "Project 1",
+    subtitle: "This was a project alright 1",
+    thumbnail:
+      "https://dailyblogger.com/wp-content/uploads/2019/02/Best_YouTube_Thumbnail_Tool.png",
+    date: new Date("October 21, 2010"),
+    logo: "",
+  }),
+  new Project({
+    title: "Project 2",
+    subtitle: "This was a project alright 2",
+    thumbnail:
+      "https://www.insertcart.com/wp-content/uploads/2018/05/thumbnail.jpg",
+    date: new Date("October 21, 2009"),
+    logo: "",
+  }),
+  new Project({
+    title: "Project 3",
+    subtitle: "This was a project alright 3",
+    thumbnail:
+      "https://www.insertcart.com/wp-content/uploads/2018/05/thumbnail.jpg",
+    date: new Date("October 21, 2009"),
+    logo: "",
+  }),
+];
 
 export default function MessageListPage({ ...props }) {
   return (
     <FullScreenFlex {...props}>
       <JumboTron />
       <FullHeight style={{ background: colors.secondary }}>
-        <Flex flex-direction="row">
-          <div>
-            <h1>Languages</h1>
-            <ul>
-              <li>JavaScript</li>
-              <li>PHP</li>
-              <li>C</li>
-              <li>Web Markup</li>
-              <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>SASS</li>
-              </ul>
-            </ul>
-          </div>
-          <div>
-            <h1>Languages</h1>
-            <ul>
-              <li>JavaScript</li>
-              <li>PHP</li>
-              <li>C</li>
-              <li>Web Markup</li>
-              <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>SASS</li>
-              </ul>
-            </ul>
-          </div>
+        <Flex flex-direction="row" align-items="flex-start">
+          <ProjectsListModule
+            data={projects}
+            active={false}
+            expose={({ open, set }) => !open && setTimeout(set(true), 2000)}
+          />
         </Flex>
       </FullHeight>
       <FullHeight style={{ background: colors.secondary }}>
