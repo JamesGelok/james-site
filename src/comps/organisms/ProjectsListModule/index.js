@@ -1,9 +1,16 @@
 import "./styles.css";
 
-import React, { useRef, useState } from "react";
-import { animated, useChain, useTransition } from "react-spring";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  animated,
+  config,
+  useChain,
+  useSpring,
+  useTransition,
+} from "react-spring";
 
 import styled from "styled-components";
+import useWindowSize from "../../useWindowSize";
 
 const darkBrown = "rgb(102, 102, 102)";
 
@@ -176,44 +183,77 @@ const ProjectCard = styled(animated.div)`
   overflow: hidden;
   margin: 0 2.4038461538% 2.4038461538% 0;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s;
+  transition: all 333ms;
+
   &:hover {
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.4);
     opacity: 1 !important;
   }
 `;
-
 const ProjectsList = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-
-  &:hover > * {
-    opacity: 0.7;
-  }
+  justify-content: space-between;
 `;
 
 export default function ProjectsListModule({ data = [], expose, active }) {
-  const [open, set] = useState(active != null ? active : true);
+  const [open, set] = useState(active != null ? active : false);
+  const [hover, setHover] = useState(false);
+  const [hoveringProjectsList, setHoveringProjectsList] = useState(false);
 
-  const transRef = useRef();
-  const transitions = useTransition(open ? data : [], (item) => item.title, {
-    ref: transRef,
-    unique: true,
-    trail: 600 / data.length,
-    from: { transform: "translate(1000%, 0%)" },
-    enter: { transform: "translate(0%, 0%)" },
-    leave: { transform: "translate(1000%, 0%)" },
+  // const springRef = useRef();
+  const { opacity, ...rest } = useSpring({
+    // ref: springRef,
+    config: config.stiff,
+    from: {
+      opacity: 1,
+    },
+    to: {
+      opacity: hover ? 0.8 : 1,
+    },
   });
 
-  useChain(open ? [transRef] : [transRef], [open ? 0 : 1]);
+  // const transRef = useRef();
+  // const transitions = useTransition(open ? data : [], (item) => item.title, {
+  //   ref: transRef,
+  //   unique: true,
+  //   trail: 600 / data.length,
+  //   from: { transform: "translate(1000%, 0%)" },
+  //   enter: { transform: "translate(0%, 0%)" },
+  //   leave: { transform: "translate(1000%, 0%)" },
+  // });
 
-  if (typeof expose === "function") expose({ open, set });
+  // useChain(open ? [transRef] : [transRef], [open ? 0.9 : 1]);
+
+  // if (typeof expose === "function") expose({ open, set });
+
+  // const opacity = 1;
+  const transitions = data.map((item, i) => ({
+    item,
+    key: Math.random() + i,
+    props: {},
+  }));
+
   return (
-    <ProjectsList>
+    <ProjectsList
+      onMouseOver={() => setHoveringProjectsList(true)}
+      onMouseLeave={() => {
+        setHoveringProjectsList(false);
+        setHover(false);
+      }}
+    >
       {(transitions || []).map(({ item, key, props }) => {
         return (
-          <ProjectCard key={key} style={{ ...props }}>
+          <ProjectCard
+            key={key}
+            style={{
+              ...props,
+              opacity,
+            }}
+            onMouseOver={() => setHover(true)}
+            // onMouseLeave={() => setHover(false)}
+          >
             <ScalableImg
               style={{ flexGrow: "1" }}
               src={item.thumbnail}

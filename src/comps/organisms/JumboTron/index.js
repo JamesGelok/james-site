@@ -5,10 +5,11 @@ import Flex from "../../atoms/Flex/index";
 import FullHeight from "../../atoms/FullHeight/index";
 import Particles from "react-particles-js";
 import Wave from "react-wavify";
+import Waves from "../../molecules/Waves";
 import colors from "../../colors";
 import useWindowSize from "../../useWindowSize";
 
-export default function JumboTron() {
+export default function JumboTron({}) {
   const [w, h] = useWindowSize();
   const percent = 0.9;
   const [saved_height] = useState(h * percent);
@@ -27,17 +28,37 @@ export default function JumboTron() {
             style={{
               textAlign: "center",
               color: colors.light,
-              textShadow: colors.secondary + "77 2px 2px 0px",
             }}
           >
-            <h1 style={{ fontSize: w > h ? "6em" : "12vw", margin: 0 }}>
-              Hi, I'm James
-            </h1>
-            <h1 style={{ fontSize: w > h ? "3.38em" : "7vw", margin: 0 }}>
-              and I make applications
-            </h1>
-            <h1 style={{ fontSize: "2em", margin: 0 }}>
-              for humans on web and mobile devices
+            <h1
+              style={{
+                textShadow:
+                  "black 0.1vh 0.1vh, aliceblue 0.2vh 0.2vh, black 0.3vh 0.3vh",
+              }}
+            >
+              <span
+                style={{
+                  fontSize: w > h || true ? "10.5vw" : "12vw",
+                  margin: 0,
+                }}
+              >
+                Hi, I'm James
+              </span>
+              <br />
+              <span
+                style={{
+                  fontSize: w > h || true ? "5.86vw" : "7vw",
+                  margin: 0,
+                }}
+              >
+                and I make applications
+              </span>
+              <br />
+              <span
+                style={{ fontSize: "3.54vw", margin: 0, lineHeight: "5vw" }}
+              >
+                for humans on web and mobile devices
+              </span>
             </h1>
           </div>
         </Flex>
@@ -50,16 +71,13 @@ export default function JumboTron() {
           left: 0,
           bottom: 0,
           right: 0,
-          zIndex: 1,
+          zIndex: 3,
           width: "100vw",
           height: height + "px",
           background:
-            "linear-gradient(0deg," +
-            colors.primary +
-            "," +
-            colors.secondary +
-            ")",
-          opacity: 0.3,
+            "linear-gradient(0deg," + colors.primary + "," + "#5995E0" + ")",
+
+          opacity: 0.1,
         }}
       />
       <div
@@ -69,7 +87,7 @@ export default function JumboTron() {
           left: 0,
           bottom: 0,
           right: 0,
-          zIndex: 0,
+          zIndex: 2,
           width: "100vw",
           height: height + "px",
         }}
@@ -181,26 +199,18 @@ export default function JumboTron() {
           }}
         />
       </div>
-      <Wave
-        fill={colors.secondary}
-        paused={false}
-        style={{ zIndex: 8 }}
-        options={{
-          height: 20,
-          amplitude: 20,
-          speed: 0.15,
-          points: 4,
-        }}
+      <Waves
+        waves={[
+          "#EEEEEE",
+          "#D9E1EC",
+          "#C3D5EA",
+          "#AEC8E8",
+          "#99BBE6",
+          "#84AEE4",
+          "#6EA2E2",
+          "#5995E0",
+        ].reverse()}
       />
-      <div
-        style={{
-          position: "absolute",
-          width: w,
-          height: "50px",
-          bottom: "0px",
-          backgroundColor: colors.secondary,
-        }}
-      ></div>
     </FullHeight>
   );
 }

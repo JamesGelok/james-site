@@ -10,7 +10,7 @@ import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
 import useScroll from "../../useScroll";
 import useWindowSize from "../../useWindowSize";
 
-export default function FixedCallToAction() {
+export default function FixedCallToAction({}) {
   const { scrollY } = useScroll();
   const [w] = useWindowSize();
   const btnWidth = 235.8125;
@@ -27,7 +27,7 @@ export default function FixedCallToAction() {
 
   const beCircle = scrollY > 100;
   const center = w / 2 - (compWidth === 0 ? btnWidth : compWidth) / 2;
-  const transition = "all 500ms ease 0s";
+  const transition = "all 500ms ease";
 
   return (
     <animated.div
@@ -39,7 +39,9 @@ export default function FixedCallToAction() {
         left: beCircle ? "35px" : center,
         zIndex: 9,
         filter: "drop-shadow(0.5px 0.5px 1.5px #333)",
-        transition,
+        transition:
+          "left 300ms cubic-bezier(.32,.02,0,1), bottom 400ms cubic-bezier(.32,.02,0,1)",
+        willChange: "left, bottom",
       }}
     >
       <ModalWrapper
