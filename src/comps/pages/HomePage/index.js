@@ -88,7 +88,7 @@ export default function HomePage({ ...props }) {
       </Flex>
       <FullHeight style={{ background: colors.secondary }}>
         <Flex style={{ position: "relative" }}>
-          <Waves />
+          <Waves zIndex="8" />
         </Flex>
       </FullHeight>
     </FullScreenFlex>

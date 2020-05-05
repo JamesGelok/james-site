@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import FixedCallToAction from "../FixedCallToAction";
 import Flex from "../../atoms/Flex/index";
@@ -11,9 +11,29 @@ import useWindowSize from "../../useWindowSize";
 
 export default function JumboTron({}) {
   const [w, h] = useWindowSize();
+  const [landscape, setLandscape] = useState(true);
   const percent = 0.9;
-  const [saved_height] = useState(h * percent);
-  const height = w > h ? h * percent : saved_height;
+  // const [saved_height] = useState(h * percent);
+  // const height = w > h ? h * percent : saved_height;
+  const height = h * percent;
+
+  useEffect(() => {
+    if (w > h) {
+      if (landscape === false) {
+        setLandscape(() => {
+          setLandscape(false);
+          setLandscape(true);
+        });
+      }
+    } else {
+      if (landscape === true) {
+        setLandscape(() => {
+          setLandscape(true);
+          setLandscape(false);
+        });
+      }
+    }
+  }, [w, h]);
 
   return (
     <FullHeight

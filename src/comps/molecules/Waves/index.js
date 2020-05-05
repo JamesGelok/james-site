@@ -1,8 +1,8 @@
 import React from "react";
 import Wave from "react-wavify";
 
-export default React.memo(function Waves({ waves: w }) {
-  const waves = w ?? [
+export default React.memo(function Waves({
+  waves = [
     "#f3e7c9",
     "#ddceb3",
     "#c6b59e",
@@ -13,8 +13,9 @@ export default React.memo(function Waves({ waves: w }) {
     "#57463f",
     "#43322d",
     "#2f211e",
-  ];
-
+  ],
+  zIndex,
+}) {
   return (
     <>
       {waves.map((el, i) => {
@@ -25,7 +26,7 @@ export default React.memo(function Waves({ waves: w }) {
             style={{
               position: "absolute",
               bottom: 15 * 5 - i * 15,
-              zIndex: i,
+              zIndex: zIndex ?? i,
             }}
             options={{
               height: 20,
