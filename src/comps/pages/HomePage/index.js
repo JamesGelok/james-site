@@ -21,26 +21,23 @@ class Project {
 
 const projects = [
   new Project({
-    title: "Project 1",
-    subtitle: "This was a project alright 1",
-    thumbnail:
-      "https://dailyblogger.com/wp-content/uploads/2019/02/Best_YouTube_Thumbnail_Tool.png",
+    title: "fathering.me",
+    subtitle: "One dad at a time",
+    thumbnail: require("../../../images/fathering.png"),
     date: new Date("October 21, 2010"),
     logo: "",
   }),
   new Project({
-    title: "Project 2",
-    subtitle: "This was a project alright 2",
-    thumbnail:
-      "https://www.insertcart.com/wp-content/uploads/2018/05/thumbnail.jpg",
+    title: "Sherlock",
+    subtitle: "Study Strong",
+    thumbnail: require("../../../images/sherlock.jpeg"),
     date: new Date("October 21, 2009"),
     logo: "",
   }),
   new Project({
-    title: "Project 3",
-    subtitle: "This was a project alright 3",
-    thumbnail:
-      "https://www.insertcart.com/wp-content/uploads/2018/05/thumbnail.jpg",
+    title: "Clarity Counselling",
+    subtitle: "Made with wordpress",
+    thumbnail: require("../../../images/clarity.png"),
     date: new Date("October 21, 2009"),
     logo: "",
   }),
