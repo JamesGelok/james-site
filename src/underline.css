@@ -1,0 +1,29 @@
+.underline {
+  /* I don't know why this is needed, I just added it and it worked in IE Edge. If we remove this width, the gradient breaks in IE Edge */
+  width: calc(100%);
+  display: inline;
+  background-image: linear-gradient(
+    to bottom,
+    #fff,
+    #bbb 50%,
+    #eee 75%,
+    #ccc 75%
+  );
+  background-repeat: no-repeat;
+  background-position: 0% 100%;
+  background-size: 0% 25%;
+  transition: background-size 0.5s;
+}
+
+*:hover > .underline.withhover {
+  background-size: 100% 25%;
+}
+
+.underline.on {
+  background-size: 100% 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

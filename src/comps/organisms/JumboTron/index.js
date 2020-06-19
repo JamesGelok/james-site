@@ -50,36 +50,40 @@ export default function JumboTron({}) {
               color: colors.light,
             }}
           >
-            <h1
-              style={{
-                textShadow:
-                  "black 0.1vh 0.1vh, aliceblue 0.2vh 0.2vh, black 0.3vh 0.3vh",
-              }}
-            >
-              <span
+            <a href="#portfolio">
+              <h1
+                className=""
                 style={{
-                  fontSize: w > h || true ? "10.5vw" : "12vw",
-                  margin: 0,
+                  cursor: "pointer",
+                  textShadow:
+                    "black 0.1vh 0.1vh, aliceblue 0.2vh 0.2vh, black 0.3vh 0.3vh",
                 }}
               >
-                Hi, I'm James
-              </span>
-              <br />
-              <span
-                style={{
-                  fontSize: w > h || true ? "5.86vw" : "7vw",
-                  margin: 0,
-                }}
-              >
-                and I make applications
-              </span>
-              <br />
-              <span
-                style={{ fontSize: "3.54vw", margin: 0, lineHeight: "5vw" }}
-              >
-                for humans on web and mobile devices
-              </span>
-            </h1>
+                <span
+                  style={{
+                    fontSize: w > h || true ? "10.5vw" : "12vw",
+                    margin: 0,
+                  }}
+                >
+                  Hi, I'm James
+                </span>
+                <br />
+                <span
+                  style={{
+                    fontSize: w > h || true ? "5.86vw" : "7vw",
+                    margin: 0,
+                  }}
+                >
+                  and I make applications
+                </span>
+                <br />
+                <span
+                  style={{ fontSize: "3.54vw", margin: 0, lineHeight: "5vw" }}
+                >
+                  for humans on web and mobile devices
+                </span>
+              </h1>
+            </a>
           </div>
         </Flex>
       </Flex>
