@@ -6,6 +6,7 @@
     "react",
     "starter"
   ],
+  "license": "MIT",
   "main": "src/index.js",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
