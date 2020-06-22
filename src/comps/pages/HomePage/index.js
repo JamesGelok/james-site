@@ -62,7 +62,7 @@ const projects = [
     date: new Date("Dec 23, 2019"),
     logo: require("../../../images/python-logo-1.png"),
     logoWidth: "120px",
-    link: "https://github.com/JamesGelok/inity",
+    link: "https://github.com/JamesGelok/TronBikePython",
   }),
   new Project({
     title: "React eCommerce",
