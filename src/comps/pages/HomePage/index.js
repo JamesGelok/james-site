@@ -93,15 +93,6 @@ const projects = [
     cursor: "not-allowed",
   }),
   new Project({
-    title: "Tron Bike Python",
-    subtitle: "Fun Shorter Syntax",
-    thumbnail: require("../../../images/tron.png"),
-    date: new Date("Dec 23, 2019"),
-    logo: require("../../../images/python-logo-1.png"),
-    logoWidth: "120px",
-    link: "https://github.com/JamesGelok/inity",
-  }),
-  new Project({
     title: "StraightPath REI",
     subtitle: "Guided Wordpress Implementation",
     thumbnail: require("../../../images/straightpath.png"),
