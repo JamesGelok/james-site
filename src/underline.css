@@ -27,3 +27,27 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+.hover-red {
+  transition: 1000ms color;
+}
+*:hover > * > * > * > .hover-red {
+  color: red;
+}
+
+.rotate-and-pulse {
+  animation-name: pulse-r;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+@keyframes pulse-r {
+  from {
+    transform: rotate3d(0, 0, 1, 10deg) scale(1);
+  }
+  50% {
+    transform: rotate3d(0, 0, 1, 10deg) scale(0.95);
+  }
+  to {
+    transform: rotate3d(0, 0, 1, 10deg) scale(1);
+  }
+}

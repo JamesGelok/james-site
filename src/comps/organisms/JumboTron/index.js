@@ -4,12 +4,11 @@ import FixedCallToAction from "../FixedCallToAction";
 import Flex from "../../atoms/Flex/index";
 import FullHeight from "../../atoms/FullHeight/index";
 import Particles from "react-particles-js";
-import Wave from "react-wavify";
 import Waves from "../../molecules/Waves";
 import colors from "../../colors";
 import useWindowSize from "../../useWindowSize";
 
-export default function JumboTron({}) {
+export default function JumboTron() {
   const [w, h] = useWindowSize();
   const [landscape, setLandscape] = useState(true);
   const percent = 0.9;
@@ -33,6 +32,7 @@ export default function JumboTron({}) {
         });
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [w, h]);
 
   return (
@@ -57,6 +57,7 @@ export default function JumboTron({}) {
                   cursor: "pointer",
                   textShadow:
                     "black 0.1vh 0.1vh, aliceblue 0.2vh 0.2vh, black 0.3vh 0.3vh",
+                  position: "relative",
                 }}
               >
                 <span
@@ -72,9 +73,21 @@ export default function JumboTron({}) {
                   style={{
                     fontSize: w > h || true ? "5.86vw" : "7vw",
                     margin: 0,
+                    position: "relative",
                   }}
                 >
                   and I make applications
+                  <img
+                    className="rotate-and-pulse"
+                    style={{
+                      position: "absolute",
+                      height: "1.5vw",
+                      right: "-9.5vw",
+                      bottom: "4.1vw",
+                    }}
+                    src={require("../../../images/andwebsites.png")}
+                    alt="and websites"
+                  />
                 </span>
                 <br />
                 <span
@@ -98,8 +111,7 @@ export default function JumboTron({}) {
           zIndex: 3,
           width: "100vw",
           height: height + "px",
-          background:
-            "linear-gradient(0deg," + colors.primary + "," + "#5995E0" + ")",
+          background: "linear-gradient(0deg," + colors.primary + ",#5995E0)",
 
           opacity: 0.1,
         }}

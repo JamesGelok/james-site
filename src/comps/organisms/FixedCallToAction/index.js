@@ -10,7 +10,7 @@ import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
 import useScroll from "../../useScroll";
 import useWindowSize from "../../useWindowSize";
 
-export default function FixedCallToAction({}) {
+export default function FixedCallToAction() {
   const { scrollY } = useScroll();
   const [w] = useWindowSize();
   const btnWidth = 235.8125;

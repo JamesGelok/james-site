@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-
 import Flex from "../Flex";
+import React from "react";
 import useWindowSize from "../../useWindowSize";
 
 export default function FullHeight({ percent = 1, style, children, ...props }) {
-  const [w, height] = useWindowSize();
+  const [, height] = useWindowSize();
   // const [saved_height] = useState(h);
   // const height = w < h ? saved_height : h;
   return (

@@ -1,16 +1,9 @@
 import "./styles.css";
 
-import React, { useEffect, useRef, useState } from "react";
-import {
-  animated,
-  config,
-  useChain,
-  useSpring,
-  useTransition,
-} from "react-spring";
+import React, { useState } from "react";
+import { animated, config, useSpring } from "react-spring";
 
 import styled from "styled-components";
-import useWindowSize from "../../useWindowSize";
 
 const darkBrown = "rgb(102, 102, 102)";
 
@@ -194,41 +187,19 @@ const ProjectsList = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-evenly;
 `;
 
 export default function ProjectsListModule({ data = [], expose, active }) {
-  const [open, set] = useState(active != null ? active : false);
   const [hover, setHover] = useState(false);
-  const [hoveringProjectsList, setHoveringProjectsList] = useState(false);
+  const [, setHoveringProjectsList] = useState(false);
 
-  // const springRef = useRef();
-  const { opacity, ...rest } = useSpring({
-    // ref: springRef,
+  const { opacity } = useSpring({
     config: config.stiff,
-    from: {
-      opacity: 1,
-    },
-    to: {
-      opacity: hover ? 0.8 : 1,
-    },
+    from: { opacity: 1 },
+    to: { opacity: hover ? 0.8 : 1 },
   });
 
-  // const transRef = useRef();
-  // const transitions = useTransition(open ? data : [], (item) => item.title, {
-  //   ref: transRef,
-  //   unique: true,
-  //   trail: 600 / data.length,
-  //   from: { transform: "translate(1000%, 0%)" },
-  //   enter: { transform: "translate(0%, 0%)" },
-  //   leave: { transform: "translate(1000%, 0%)" },
-  // });
-
-  // useChain(open ? [transRef] : [transRef], [open ? 0.9 : 1]);
-
-  // if (typeof expose === "function") expose({ open, set });
-
-  // const opacity = 1;
   const transitions = data.map((item, i) => ({
     item,
     key: Math.random() + i,
@@ -245,25 +216,43 @@ export default function ProjectsListModule({ data = [], expose, active }) {
     >
       {(transitions || []).map(({ item, key, props }) => {
         return (
-          <ProjectCard
-            key={key}
-            style={{
-              ...props,
-              opacity,
-            }}
-            onMouseOver={() => setHover(true)}
-            // onMouseLeave={() => setHover(false)}
+          <a
+            href={item.link}
+            target={item.link === false ? undefined : "_blank"}
+            rel="noopener noreferrer"
           >
-            <ScalableImg
-              style={{ flexGrow: "1" }}
-              src={item.thumbnail}
-              height="70%"
-            />
-            <div style={{ flexGrow: "0" }}>
-              <Title>{item.title}</Title>
-              <SubTitle>{item.subtitle}</SubTitle>
-            </div>
-          </ProjectCard>
+            <ProjectCard
+              key={key}
+              style={{
+                ...props,
+                opacity,
+                cursor: item.cursor,
+              }}
+              onMouseOver={() => setHover(true)}
+              // onMouseLeave={() => setHover(false)}
+            >
+              <img
+                style={{
+                  width: item.logoWidth || "30px",
+                  position: "absolute",
+                  zIndex: 10,
+                  bottom: "10px",
+                  right: "10px",
+                }}
+                src={item.logo}
+                alt=""
+              />
+              <ScalableImg
+                style={{ flexGrow: "1" }}
+                src={item.thumbnail}
+                height="70%"
+              />
+              <div style={{ flexGrow: "0" }}>
+                <Title>{item.title}</Title>
+                <SubTitle>{item.subtitle}</SubTitle>
+              </div>
+            </ProjectCard>
+          </a>
         );
       })}
     </ProjectsList>
