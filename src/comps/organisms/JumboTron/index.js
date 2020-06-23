@@ -12,7 +12,7 @@ export default function JumboTron() {
   const [w, h] = useWindowSize();
   const [landscape, setLandscape] = useState(true);
   const percent = 0.9;
-  // const [saved_height] = useState(h * percent);
+  const [saved_height] = useState(h * percent);
   // const height = w > h ? h * percent : saved_height;
   const height = h * percent;
 
@@ -34,6 +34,16 @@ export default function JumboTron() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [w, h]);
+  const waves = [
+    "#5995E0",
+    "#6EA2E2",
+    "#84AEE4",
+    "#99BBE6",
+    "#AEC8E8",
+    "#C3D5EA",
+    "#D9E1EC",
+    "#EEEEEE",
+  ];
 
   return (
     <FullHeight
@@ -110,7 +120,7 @@ export default function JumboTron() {
           right: 0,
           zIndex: 3,
           width: "100vw",
-          height: height + "px",
+          height: saved_height + "px",
           background: "linear-gradient(0deg," + colors.primary + ",#5995E0)",
 
           opacity: 0.1,
@@ -125,12 +135,12 @@ export default function JumboTron() {
           right: 0,
           zIndex: 2,
           width: "100vw",
-          height: height + "px",
+          height: saved_height + "px",
         }}
       >
         <Particles
           width="100vw"
-          height={height + "px"}
+          height={saved_height + "px"}
           params={{
             particles: {
               number: {
@@ -235,17 +245,15 @@ export default function JumboTron() {
           }}
         />
       </div>
-      <Waves
-        waves={[
-          "#EEEEEE",
-          "#D9E1EC",
-          "#C3D5EA",
-          "#AEC8E8",
-          "#99BBE6",
-          "#84AEE4",
-          "#6EA2E2",
-          "#5995E0",
-        ].reverse()}
+      <Waves waves={waves} />
+      <div
+        style={{
+          position: "absolute",
+          bottom: 0,
+          background: "red",
+          height: "20px",
+          width: w,
+        }}
       />
     </FullHeight>
   );
